@@ -39,6 +39,32 @@ This project segments brain tumors from MRI images using **K-Means Clustering**�
 5. Overlay tumor mask on original image
 
 ---
+📦 Dependencies
 
-## 📂 Project Structure
+numpy
+opencv-python
+scikit-learn
+matplotlib
+jupyter
+
+📈 Possible Improvements
+
+    📊 Add metrics (if ground truth available)
+
+    🎨 Interactive GUI or web tool
+
+    🔁 Try advanced clustering (DBSCAN, Spectral)
+
+    🧠 Compare with deep learning methods later
+
+    📜 License
+
+MIT License — Free to use and modify
+👨‍💻 Author
+
+Lahiru Pramuditha
+🔗 Portfolio | ✉️ lahirupramuditha0000@gmail.com | 🐙 GitHub
+
+
+
 
