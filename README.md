@@ -1,13 +1,13 @@
-# 🧠 Brain Tumor Segmentation with Mean Shift Clustering
+# 🧠 Brain Tumor Segmentation with K-Means Clustering
 
-> Unsupervised brain MRI segmentation using Python, OpenCV, and Mean Shift Clustering.  
-> No labeled data. No deep learning. Just pure clustering wizardry.
+> Unsupervised brain MRI segmentation using Python, OpenCV, and K-Means Clustering.  
+> Clean, fast, and doesn’t need labeled data.
 
 ---
 
 ## 📌 Overview
 
-This project implements an **unsupervised approach** to detect and segment brain tumors from MRI scans using **Mean Shift Clustering**. It’s lightweight, interpretable, and doesn't require training on huge datasets.
+This project segments brain tumors from MRI images using **K-Means Clustering**—a simple but powerful unsupervised learning algorithm. It's ideal for quick medical image segmentation tasks without deep learning.
 
 ---
 
@@ -21,22 +21,22 @@ This project implements an **unsupervised approach** to detect and segment brain
 
 ## 🚀 Features
 
-- ✅ Preprocessing (grayscale, smoothing, etc.)
-- ✅ Mean Shift clustering from `sklearn`
-- ✅ Tumor region extraction
-- ✅ Visualization overlays
-- 🔜 Dice/Jaccard Score (optional)
-- 🔜 GUI or CLI pipeline
+- ✅ Preprocessing (grayscale, denoising)
+- ✅ K-Means clustering from `sklearn`
+- ✅ Tumor region isolation
+- ✅ Contour & mask overlay
+- 🔜 Evaluation metrics (Dice/Jaccard)
+- 🔜 Web/GUI interface
 
 ---
 
 ## 🧠 How It Works
 
-1. Load brain MRI image
-2. Preprocess: grayscale, noise reduction, normalization
-3. Reshape image and apply **Mean Shift Clustering**
-4. Extract cluster(s) representing tumor
-5. Overlay and visualize segmented output
+1. Convert MRI scan to grayscale and normalize
+2. Flatten and feed pixel data to **K-Means** (`k=2` or `k=3`)
+3. Assign each cluster a label
+4. Isolate the cluster likely to represent the tumor
+5. Overlay tumor mask on original image
 
 ---
 
