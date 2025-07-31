@@ -1,70 +1,84 @@
-# 🧠 Brain Tumor Segmentation with K-Means Clustering
 
-> Unsupervised brain MRI segmentation using Python, OpenCV, and K-Means Clustering.  
-> Clean, fast, and doesn’t need labeled data.
+This project applies **K-Means Clustering** on grayscale brain MRI images to perform **unsupervised segmentation**. The goal is to separate different brain regions and isolate potential tumor areas — all without any labeled data or deep learning.
 
 ---
 
-## 📌 Overview
+## 🧪 What It Does
 
-This project segments brain tumors from MRI images using **K-Means Clustering**—a simple but powerful unsupervised learning algorithm. It's ideal for quick medical image segmentation tasks without deep learning.
-
----
-
-## 🧪 Demo
-
-| Original Image | Segmented Tumor |
-|----------------|------------------|
-| ![Input](results/input_sample.png) | ![Output](results/output_sample.png) |
+- Reads a brain MRI in grayscale
+- Flattens the image for clustering
+- Applies K-Means to segment pixels into clusters (e.g., tumor vs normal tissue)
+- Visualizes the cluster result
+- Saves the trained model for reuse
 
 ---
 
-## 🚀 Features
+## 📂 Project Structure
 
-- ✅ Preprocessing (grayscale, denoising)
-- ✅ K-Means clustering from `sklearn`
-- ✅ Tumor region isolation
-- ✅ Contour & mask overlay
-- 🔜 Evaluation metrics (Dice/Jaccard)
-- 🔜 Web/GUI interface
+.
+├── test_images/ # Folder for input MRI images
+├── brain_tumor_kmeans.sav # Saved KMeans model
 
 ---
 
-## 🧠 How It Works
+## 📦 Requirements
 
-1. Convert MRI scan to grayscale and normalize
-2. Flatten and feed pixel data to **K-Means** (`k=2` or `k=3`)
-3. Assign each cluster a label
-4. Isolate the cluster likely to represent the tumor
-5. Overlay tumor mask on original image
+- Python 3.8+
+- OpenCV
+- scikit-learn
+- matplotlib
+- joblib
 
----
-📦 Dependencies
+Install all dependencies:
+```bash
+pip install -r requirements.txt
 
-numpy
-opencv-python
-scikit-learn
-matplotlib
-jupyter
+🚀 How to Run
 
-📈 Possible Improvements
+python segment.py
 
-    📊 Add metrics (if ground truth available)
+This will:
 
-    🎨 Interactive GUI or web tool
+    Read test_images/0 (239).jpg
 
-    🔁 Try advanced clustering (DBSCAN, Spectral)
+    Cluster the image using K-Means
 
-    🧠 Compare with deep learning methods later
+    Display the clustered result
 
-    📜 License
+    Save the model as brain_tumor_kmeans.sav
 
-MIT License — Free to use and modify
+💾 Model Usage
+
+To reuse the saved KMeans model:
+
+import joblib
+model = joblib.load('brain_tumor_kmeans.sav')
+predicted_labels = model.predict(new_image_flattened)
+
+🧠 Why K-Means?
+
+K-Means is a classic unsupervised algorithm. It works well for image segmentation when:
+
+    You have no labeled data
+
+    You want quick clustering by pixel intensity
+
+    You don't want the overhead of deep learning
+
+This project uses only intensity, but can be extended with (x, y) coordinates and more features.
+📈 Future Plans
+
+    Add spatial features (x, y) to improve clustering
+
+    Extract likely tumor cluster based on size or brightness
+
+    Save output masks as image files
+
+    Use morphological ops to refine tumor mask
+
+    Try DBSCAN or Spectral Clustering for comparison
+
 👨‍💻 Author
 
 Lahiru Pramuditha
-🔗 Portfolio | ✉️ lahirupramuditha0000@gmail.com | 🐙 GitHub
-
-
-
-
+📫 lahirupramuditha0000@gmail.com
