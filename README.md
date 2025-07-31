@@ -18,9 +18,6 @@ This project applies **K-Means Clustering** on grayscale brain MRI images to per
 .
 ├── test_images/ # Folder for input MRI images
 ├── brain_tumor_kmeans.sav # Saved KMeans model
-├── segment.py # Main script (your code)
-└── README.md
-
 
 ---
 
